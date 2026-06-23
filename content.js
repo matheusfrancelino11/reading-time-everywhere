@@ -24,7 +24,7 @@
     wordCount = text.trim().split(/\s+/).length;
   }
   
-  if (wordCount < 10) return; // Don't show for very short pages
+  if (wordCount < 100) return; // Don't show for very short pages
 
   // Calculate reading time (200 words per minute)
   const wpm = 200;
@@ -34,8 +34,7 @@
   const badge = document.createElement('div');
   badge.id = 'reading-time-everywhere-badge';
   
-  // Format word count with dot as thousands separator (e.g. 1.732)
-  const formattedWordCount = wordCount.toLocaleString('pt-BR'); 
+  const formattedWordCount = wordCount.toLocaleString('en-US'); 
   
   badge.innerHTML = `
     <div class="rte-content">
