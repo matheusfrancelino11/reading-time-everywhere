@@ -24,7 +24,7 @@
     wordCount = text.trim().split(/\s+/).length;
   }
   
-  if (wordCount < 100) return; // Don't show for very short pages
+  if (wordCount < 200) return; // Don't show for very short pages
 
   // Calculate reading time (200 words per minute)
   const wpm = 200;
@@ -35,8 +35,10 @@
   badge.id = 'reading-time-everywhere-badge';
   
   const formattedWordCount = wordCount.toLocaleString('en-US'); 
+  const iconUrl = chrome.runtime.getURL('icon48.png');
   
   badge.innerHTML = `
+    <img src="${iconUrl}" class="rte-logo" alt="logo" />
     <div class="rte-content">
       <div class="rte-time">${readingTime} min read</div>
       <div class="rte-words">${formattedWordCount} words</div>
